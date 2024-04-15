@@ -11,8 +11,10 @@ public class BancoDePalavras {
     gerarPalavras();
   }
 
-  private void gerarPalavras(){
-    String[] palavras = {"cachorro", "gato", "computador", "casa", "carro", "mesa", "banana", "laranja", "mouse", "teclado", "speaker", "roda", "pessoas", "bicho", "restaurante", "conveniencia", "fachada", "paralelepipedo", "trade", "kitesurf"};
+  private void gerarPalavras() {
+    String[] palavras = {"cachorro", "gato", "computador", "casa", "carro", "mesa", "banana",
+        "laranja", "mouse", "teclado", "speaker", "roda", "pessoas", "bicho", "restaurante",
+        "conveniencia", "fachada", "paralelepipedo", "trade", "kitesurf"};
     bancoDePalavras.addAll(Arrays.asList(palavras));
   }
 

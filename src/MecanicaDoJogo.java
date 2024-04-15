@@ -1,6 +1,8 @@
 public interface MecanicaDoJogo {
+
   void inicia();
-  public boolean fazPerguntaEAvalia(String palavra, String quiz);
+
+  boolean fazPerguntaEAvalia(String palavra, String quiz);
 }
 
 /*

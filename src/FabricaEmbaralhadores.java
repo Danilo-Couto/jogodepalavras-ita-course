@@ -10,7 +10,7 @@ public class FabricaEmbaralhadores {
     this.listaEmbaralhador.add(new EmbaralhadorSubstitue());
   }
 
-  public Embaralhador retornaUmEmbaralhador(){
+  public Embaralhador retornaUmEmbaralhador() {
     int numeroAleatorio = (int) (Math.random() * listaEmbaralhador.size());
     return listaEmbaralhador.get(numeroAleatorio);
   }
