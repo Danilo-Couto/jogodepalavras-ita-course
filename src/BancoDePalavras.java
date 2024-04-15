@@ -25,7 +25,6 @@ public class BancoDePalavras {
     int numeroAleatorio = (int) (Math.random() * bancoDePalavras.size());
     return bancoDePalavras.get(numeroAleatorio);
   }
-
 }
 
 //classe que possui um método que retorna uma palavra retirada
