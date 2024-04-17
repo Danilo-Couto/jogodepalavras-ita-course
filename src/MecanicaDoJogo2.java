@@ -8,6 +8,14 @@ public class MecanicaDoJogo2 implements MecanicaDoJogo {
     this.pontos = 0;
   }
 
+  public int getPontos() {
+    return pontos;
+  }
+
+  public int getTentativasRestantes() {
+    return tentativasRestantes;
+  }
+
   @Override
   public void quiz(String palavra, String resposta) {
     if (resposta.equals(palavra)) {

@@ -3,6 +3,10 @@ public class MecanicaDoJogo1 implements MecanicaDoJogo {
   int pontos = 0;
   boolean jogoTerminado = false;
 
+  public int getPontos() {
+    return pontos;
+  }
+
   @Override
   public void quiz(String palavra, String resposta) {
     andamento(resposta.equals(palavra));
