@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class BancoDePalavras {
 
@@ -18,10 +19,14 @@ public class BancoDePalavras {
     bancoDePalavras.addAll(Arrays.asList(palavras));
   }
 
-  public List<String> getBancoDePalavras() {
-    return bancoDePalavras;
+  public String getPalavraAleatoria() {
+    Random random = new Random();
+    return bancoDePalavras.get(random.nextInt(bancoDePalavras.size()));
   }
 
+  public int getTamanhoDaLista() {
+    return bancoDePalavras.size();
+  }
 }
 
 //classe que possui um método que retorna uma palavra retirada

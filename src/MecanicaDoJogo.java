@@ -1,12 +1,10 @@
 public interface MecanicaDoJogo {
 
-  void inicia();
+  void quiz(String palavra, String resposta);
 
-  boolean fazPerguntaEAvalia(String palavra, String quiz);
+  void termina();
+
+  default boolean aindaTemTentativas() {
+    return true;
+  }
 }
-
-/*
-interface que representa o andamento e a lógica do jogo. É responsável por ditar o andamento do jogo.
-Ela que vai dizer se o jogo acabou ou não, se o usuário acertou a
-    palavra ou não, se o usuário pode tentar acertar a palavra novamente e qual foi a pontuação final
-do jogador. Pelo menos duas implementações dessa interface devem ser criadas.*/

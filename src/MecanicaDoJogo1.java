@@ -1,49 +1,27 @@
-import java.util.Objects;
-import java.util.Scanner;
-
 public class MecanicaDoJogo1 implements MecanicaDoJogo {
 
-  BancoDePalavras bancoDePalavras;
-  Embaralhador embaralhador;
-  Scanner in;
+  int pontos = 0;
+  boolean jogoTerminado = false;
 
-  boolean naoContinua = true;
-
-  public MecanicaDoJogo1(BancoDePalavras bancoDePalavras, Embaralhador embaralhador) {
-    this.bancoDePalavras = bancoDePalavras;
-    this.embaralhador = embaralhador;
-    this.in = new Scanner(System.in);
+  @Override
+  public void quiz(String palavra, String resposta) {
+    andamento(resposta.equals(palavra));
   }
 
   @Override
-  public void inicia() {
-    boolean mesmoQuiz = true;
-
-    for (String palavra : bancoDePalavras.getBancoDePalavras()) {
-      String quiz = embaralhador.recebePalavraEEmbaralha(palavra);
-      while (mesmoQuiz) {
-        naoContinua = fazPerguntaEAvalia(palavra, quiz);
-        if (naoContinua) {
-          mesmoQuiz = false;
-        }
-      }
-      break;
-    }
-    System.out.println("Obrigado por jogar =)");
+  public void termina() {
+    jogoTerminado = true;
+    System.out.println("----");
+    System.out.println("Fim do jogo");
+    System.out.println("Você fez " + pontos + " pontos");
   }
 
-  @Override
-  public boolean fazPerguntaEAvalia(String palavra, String quiz) {
-    System.out.println(quiz);
-    System.out.println("Adivinhe que palavra é essa?");
-    String tentativa = in.next();
-
-    if (Objects.equals(tentativa, palavra)) {
-      System.out.println("Parabéns, você Ganhou!");
-      return true;
+  public void andamento(boolean acertou) {
+    if (acertou) {
+      System.out.println("Correto!");
+      pontos++;
     } else {
-      System.out.println("Errou! Quer tentar novamente? s ou n");
-      return in.next().equals("n");
+      System.out.println("Incorreto!");
     }
   }
 }

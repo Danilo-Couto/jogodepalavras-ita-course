@@ -1,23 +1,43 @@
+import java.util.Scanner;
+
 public class Main {
 
   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
 
     BancoDePalavras bancoDePalavras = new BancoDePalavras();
-
     FabricaEmbaralhadores fabricaEmbaralhadores = new FabricaEmbaralhadores();
+    Embaralhador embaralhador = fabricaEmbaralhadores.retornaUmEmbaralhador();
 
-    Embaralhador embaralhador1 = fabricaEmbaralhadores.retornaUmEmbaralhador();
+    boolean continuarJogando = true;
 
-    FabricaMecanicaDoJogo fabricaMecanicaDoJogo = new FabricaMecanicaDoJogo();
-    fabricaMecanicaDoJogo.addMecanicaDeJogo(bancoDePalavras, embaralhador1);
+    while (continuarJogando) {
+      MecanicaDoJogo mecanicaDoJogo = new MecanicaDoJogo2(3);
 
-    MecanicaDoJogo mecanicaDoJogo1 = fabricaMecanicaDoJogo.retornaMecanicaDoJogo();
-    mecanicaDoJogo1.inicia();
+      int quantidadeDePalavras = bancoDePalavras.getTamanhoDaLista();
+
+      while (quantidadeDePalavras > 15 && mecanicaDoJogo.aindaTemTentativas()) {
+        String palavra = bancoDePalavras.getPalavraAleatoria();
+        String palavraEmbaralhada = embaralhador.recebePalavraEEmbaralha(palavra);
+        System.out.println("Palavra embaralhada: " + palavraEmbaralhada);
+        System.out.println("Digite sua resposta:");
+        String resposta = scanner.nextLine();
+
+        mecanicaDoJogo.quiz(palavra, resposta);
+        quantidadeDePalavras--;
+      }
+
+      mecanicaDoJogo.termina();
+
+      System.out.println("Quer tentar novamente? Digite s ou n");
+      String jogarNovamente = scanner.nextLine();
+      if (!jogarNovamente.equalsIgnoreCase("s")) {
+        continuarJogando = false;
+      }
+    }
+
+    System.out.println("Obrigado por jogar");
+    scanner.close();
   }
-}
 
-//  A classe Principal deve recuperar a instância de MecanicaDoJogo de FabricaMecanicaDoJogo e não
-//    pode conter nenhuma referência direta a uma das implementações, apenas a interface. Da mesma
-//    forma, as implementações de MecanicaDoJogo devem recuperar os embaralhadores de
-//    FabricaEmbaralhadores e também não pode conter nenhuma referência direta a implementações de
-//    Embaralhador, apenas a interface.
+}

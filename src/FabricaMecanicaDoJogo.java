@@ -5,10 +5,6 @@ public class FabricaMecanicaDoJogo {
 
   List<MecanicaDoJogo> listaMecanicaDeJogo = new ArrayList<>();
 
-  public FabricaMecanicaDoJogo(BancoDePalavras bancoDePalavras, Embaralhador embaralhador) {
-    this.listaMecanicaDeJogo.add(new MecanicaDoJogo1(bancoDePalavras, embaralhador));
-  }
-
   public FabricaMecanicaDoJogo() {
   }
 
@@ -17,9 +13,4 @@ public class FabricaMecanicaDoJogo {
     return listaMecanicaDeJogo.get(numeroAleatorio);
   }
 
-  public void addMecanicaDeJogo(BancoDePalavras bancoDePalavras, Embaralhador embaralhador) {
-    this.listaMecanicaDeJogo.add(new MecanicaDoJogo1(bancoDePalavras, embaralhador));
-  }
 }
-
-//  retorna a MecanicaDoJogo que deve ser utilizada.
